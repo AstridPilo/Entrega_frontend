@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neko Tea Bar — Formulario de Adopción</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <a href="index.html" aria-label="Volver al inicio">
+        <img
+          src="./assets/neko.svg"
+          alt="Logo de Neko Tea Bar"
+          width="120"
+          height="120"
+        />
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="menu-bebidas.html">Menú de Bebidas</a></li>
+          <li><a href="menu-comidas.html">Menú de Comidas</a></li>
+          <li><a href="adopta.html">Adopta un Gatito</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="formulario-adopcion">
+      <h1>Formulario de Adopción 🐾</h1>
+      <p>Estás aplicando para: <strong id="gato-seleccionado">—</strong></p>
+
+      <form id="form-adopcion" enctype="multipart/form-data">
+        <!-- Datos personales -->
+        <label>
+          Nombre y Apellido
+          <input
+            type="text"
+            name="nombre"
+            placeholder="Tu nombre completo"
+            required
+          />
+        </label>
+
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            placeholder="tucorreo@ejemplo.com"
+            required
+          />
+        </label>
+
+        <label>
+          Teléfono
+          <input
+            type="tel"
+            name="telefono"
+            placeholder="Tu número de contacto"
+          />
+        </label>
+
+        <label>
+          Localidad
+          <input
+            type="text"
+            name="localidad"
+            placeholder="Ciudad / Provincia"
+            required
+          />
+        </label>
+
+        <label>
+          Tipo de vivienda
+          <select name="vivienda" required>
+            <option value="" disabled selected>Elegí una opción…</option>
+            <option>Casa</option>
+            <option>Departamento</option>
+            <option>PH / Dúplex</option>
+            <option>Otro</option>
+          </select>
+        </label>
+
+        <!-- Seguridad -->
+        <fieldset>
+          <legend>Seguridad en el hogar 🏠</legend>
+          <p>¿Tus ventanas cuentan con red de protección?</p>
+          <div class="opciones">
+            <input type="radio" name="ventanas_protegidas" value="si" />
+            <label class="chk"> Si </label>
+            <input type="radio" name="ventanas_protegidas" value="no" />
+            <label class="chk"> No </label>
+            <input type="radio" name="ventanas_protegidas" value="compromiso" />
+
+            <label class="chk">Me comprometo a colocarlas</label>
+          </div>
+
+          <label class="full">
+            Por favor, adjuntá una foto
+            <input type="file" name="foto_ventana" accept="image/*" />
+          </label>
+        </fieldset>
+
+        <!-- Mascotas actuales -->
+        <fieldset>
+          <legend>Otras mascotas 🐕🐇🐦</legend>
+
+          <p>¿Convivís con otras mascotas?</p>
+          <div class="opciones">
+            <input type="radio" name="otras_mascotas" value="si" />
+            <label class="chk"> Sí </label>
+            <input type="radio" name="otras_mascotas" value="no" />
+            <label class="chk"> No </label>
+          </div>
+
+          <label class="full">
+            Si la respuesta es sí, contanos cuáles:
+            <textarea
+              name="detalle_mascotas"
+              rows="2"
+              placeholder="Perro, gato, hámster..."
+            ></textarea>
+          </label>
+
+          <p>¿Estas otras mascotas están castradas?</p>
+          <div class="opciones">
+            <input type="radio" name="mascotas_castradas" value="si" />
+
+            <label class="chk"> Si</label>
+            <input type="radio" name="mascotas_castradas" value="no" />
+
+            <label class="chk">No </label>
+          </div>
+        </fieldset>
+
+        <!-- Compromisos -->
+        <fieldset>
+          <legend>Tus compromisos 💌</legend>
+          <div class="opciones">
+            <input type="checkbox" name="compromiso_castrar" required />
+            <label class="chk"> Me comprometo a castrar si corresponde. </label>
+          </div>
+          <div class="opciones">
+            <input type="checkbox" name="compromiso_entrevistas" required />
+            <label class="chk"> Acepto entrevistas de seguimiento. </label>
+          </div>
+          <div class="opciones">
+            <input type="checkbox" name="compromiso_vacunas" required />
+            <label class="chk">
+              Me comprometo a mantener las vacunas al día.
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Motivación -->
+        <label class="full">
+          ¿Por qué querés adoptar a este michi? 💖
+          <textarea
+            name="motivo"
+            rows="4"
+            placeholder="Contanos un poquito sobre tu decisión..."
+            required
+          ></textarea>
+        </label>
+
+        <!-- Botón -->
+        <button type="submit" class="btn-primary">Enviar solicitud</button>
+      </form>
+
+      <p id="mensaje-exito" hidden>
+        ¡Gracias! Tu solicitud fue enviada con éxito 🐱✨
+      </p>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© <span id="anio"></span> Neko Tea Bar — Hecho con ♥️ y mucho té.</p>
+    </footer>
+
+    <script>
+      // Año dinámico
+      document.getElementById("anio").textContent = new Date().getFullYear();
+
+      // Gatito desde la URL
+      const params = new URLSearchParams(window.location.search);
+      const gato = params.get("cat") || "uno de nuestros gatitos";
+      document.getElementById("gato-seleccionado").textContent = gato;
+
+      // Simulación de envío
+      const form = document.getElementById("form-adopcion");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        form.hidden = true;
+        document.getElementById("mensaje-exito").hidden = false;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neko Tea Bar — Contacto</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <a href="index.html" aria-label="Volver al inicio">
+        <img
+          src="./assets/neko.svg"
+          alt="Logo de Neko Tea Bar"
+          width="120"
+          height="120"
+        />
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="menu-bebidas.html">Menú de Bebidas</a></li>
+          <li><a href="menu-comidas.html">Menú de Comidas</a></li>
+          <li><a href="adopta.html">Adopta un Gatito</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <h1>Contacto 📬</h1>
+      <p>
+        ¿Tenés alguna consulta, idea o simplemente querés saludarnos? Completá
+        el formulario y te responderemos lo antes posible. 💌
+      </p>
+
+      <form class="form-contacto">
+        <label>
+          Nombre
+          <input
+            type="text"
+            name="nombre"
+            placeholder="Tu nombre completo"
+            required
+          />
+        </label>
+
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            placeholder="tucorreo@ejemplo.com"
+            required
+          />
+        </label>
+
+        <label>
+          Mensaje
+          <textarea
+            name="mensaje"
+            rows="4"
+            placeholder="Escribí tu mensaje..."
+            required
+          ></textarea>
+        </label>
+
+        <button type="submit" class="btn-primary">Enviar</button>
+      </form>
+
+      <p id="mensaje-exito" hidden>
+        ¡Gracias! Tu mensaje fue enviado con éxito 🐱✨
+      </p>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© <span id="anio"></span> Neko Tea Bar — Hecho con ♥️ y mucho té.</p>
+    </footer>
+
+    <script>
+      // Año dinámico en el footer
+      document.getElementById("anio").textContent = new Date().getFullYear();
+
+      // Simulación de envío de formulario
+      const form = document.querySelector(".form-contacto");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        form.hidden = true;
+        document.getElementById("mensaje-exito").hidden = false;
+      });
+    </script>
+  </body>
+</html>

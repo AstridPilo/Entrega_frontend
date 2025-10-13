@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neko Tea Bar — Menú de Comidas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <a href="index.html" aria-label="Volver al inicio">
+        <img
+          src="neko.svg"
+          alt="Logo de Neko Tea Bar"
+          width="120"
+          height="120"
+        />
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="menu-bebidas.html">Menú de Bebidas</a></li>
+          <li>
+            <a href="menu-comidas.html" aria-current="page">Menú de Comidas</a>
+          </li>
+          <li><a href="adopta.html">Adopta un Gatito</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <h1>Menú de Comidas</h1>
+      <p>
+        Platos caseros que cambian cada estación. Indica alergias al ordenar. 🐾
+      </p>
+
+      <section>
+        <h2>Entradas</h2>
+        <article>
+          <h3>Gyozas "Bigotes"</h3>
+          <p>Empanaditas al vapor con salsa de soja y jengibre.</p>
+          <p><strong>Precio:</strong> $3.200</p>
+        </article>
+        <article>
+          <h3>Edamame Ronroneo</h3>
+          <p>Vainas de soja con sal marina. <em>Vegano</em>.</p>
+          <p><strong>Precio:</strong> $2.400</p>
+        </article>
+        <article>
+          <h3>Takoyaki "Patas Suaves"</h3>
+          <p>
+            Bolas de masa rellenas de pulpo con salsa especial y copos de
+            bonito.
+          </p>
+          <p><strong>Precio:</strong> $3.600</p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Platos Principales</h2>
+        <article>
+          <h3>Katsu Curry "Michi"</h3>
+          <p>Milanesa de pollo con curry suave y arroz jazmín.</p>
+          <p><strong>Precio:</strong> $6.800</p>
+        </article>
+        <article>
+          <h3>Ramen Verde Gatuno</h3>
+          <p>
+            Caldo de verduras, tofu grillado, alga nori y hongos.
+            <em>Vegano</em>.
+          </p>
+          <p><strong>Precio:</strong> $6.500</p>
+        </article>
+        <article>
+          <h3>Onigiri Tricolor</h3>
+          <p>
+            Triángulos de arroz rellenos (salmón, ciruela, atún). 3 unidades.
+          </p>
+          <p><strong>Precio:</strong> $4.200</p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Postres</h2>
+        <article>
+          <h3>Cheesecake "Miau"</h3>
+          <p>Clásico con coulis de frutos rojos.</p>
+          <p><strong>Precio:</strong> $3.900</p>
+        </article>
+        <article>
+          <h3>Compota Neko</h3>
+          <p>Manzana y canela con granola. <em>Vegano</em>.</p>
+          <p><strong>Precio:</strong> $3.100</p>
+        </article>
+        <article>
+          <h3>Dorayaki "Colita Dulce"</h3>
+          <p>Panqueques japoneses rellenos de pasta de porotos rojos (anko).</p>
+          <p><strong>Precio:</strong> $3.500</p>
+        </article>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© <span id="anio"></span> Neko Tea Bar — Hecho con ♥️ y mucho té.</p>
+    </footer>
+
+    <script>
+      document.getElementById("anio").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
