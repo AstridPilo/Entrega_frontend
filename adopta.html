@@ -4,12 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neko Tea Bar — Adopta un Gatito</title>
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("anio").textContent = new Date().getFullYear();
+      });
+    </script>
   </head>
+
   <body>
     <!-- HEADER -->
-    <header>
-      <a href="index.html" aria-label="Volver al inicio">
+    <header class="site-header">
+      <a href="index.html" aria-label="Volver al inicio" class="logo-link">
         <img
           src="./assets/neko.svg"
           alt="Logo de Neko Tea Bar"
@@ -17,7 +25,8 @@
           height="120"
         />
       </a>
-      <nav aria-label="Navegación principal">
+
+      <nav class="main-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="menu-bebidas.html">Menú de Bebidas</a></li>
           <li><a href="menu-comidas.html">Menú de Comidas</a></li>
@@ -30,9 +39,10 @@
     </header>
 
     <!-- MAIN -->
-    <main>
-      <h1>Adopta un Gatito 🐾</h1>
-      <p>
+    <main class="adopta-main">
+      <h1 class="titulo-adopta">Adopta un Gatito 🐾</h1>
+
+      <p class="intro-adopta">
         Conocé a nuestros adorables michis en busca de hogar. Cada uno tiene su
         propia personalidad única.
       </p>
@@ -46,7 +56,9 @@
             <th>Adopción</th>
           </tr>
         </thead>
+
         <tbody>
+          <!-- GATO 1 -->
           <tr>
             <td>
               <img src="./assets/gato1.png" alt="Señor Bigotes" width="120" />
@@ -54,14 +66,16 @@
             <td>Señor Bigotes</td>
             <td>Elegante y dormilón. Ama tomar sol en la ventana.</td>
             <td>
-              <a href="adopcion.html?cat=Señor%20Bigotes" class="btn-adoptar"
+              <a
+                href="adopcion.html?cat=Señor%20Bigotes"
+                class="btn-adoptar"
                 >Adoptar</a
               >
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 2 -->
           <tr>
             <td>
               <img src="./assets/gato2.png" alt="Doña Croqueta" width="120" />
@@ -69,14 +83,16 @@
             <td>Doña Croqueta</td>
             <td>Cazadora de pelusas, súper juguetona.</td>
             <td>
-              <a href="adopcion.html?cat=Doña%20Croqueta" class="btn-adoptar"
+              <a
+                href="adopcion.html?cat=Doña%20Croqueta"
+                class="btn-adoptar"
                 >Adoptar</a
               >
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 3 -->
           <tr>
             <td>
               <img src="./assets/gato3.png" alt="Michi Latte" width="120" />
@@ -84,14 +100,16 @@
             <td>Michi Latte</td>
             <td>Suave como la espuma, le encanta estar acompañado.</td>
             <td>
-              <a href="adopcion.html?cat=Michi%20Latte" class="btn-adoptar"
+              <a
+                href="adopcion.html?cat=Michi%20Latte"
+                class="btn-adoptar"
                 >Adoptar</a
               >
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 4 -->
           <tr>
             <td>
               <img src="./assets/gato4.png" alt="Capitán Garra" width="120" />
@@ -99,68 +117,70 @@
             <td>Capitán Garra</td>
             <td>Aventurero, curioso y siempre listo para trepar.</td>
             <td>
-              <a href="adopcion.html?cat=Capitán%20Garra" class="btn-adoptar"
+              <a
+                href="adopcion.html?cat=Capitán%20Garra"
+                class="btn-adoptar"
                 >Adoptar</a
               >
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 5 -->
           <tr>
             <td>
               <img src="./assets/gato5.png" alt="Bolita de Nieve" width="120" />
             </td>
             <td>Bolita de Nieve</td>
-            <td>Tranquilo, ronronea como un motorcito cuando lo acarician.</td>
+            <td>
+              Tranquilo, ronronea como un motorcito cuando lo acarician.
+            </td>
             <td>
               <a
                 href="adopcion.html?cat=Bolita%20de%20Nieve"
                 class="btn-adoptar"
                 >Adoptar</a
               >
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 6 -->
           <tr>
-            <td>
-              <img src="./assets/gato6.png" alt="Franchesco" width="120" />
-            </td>
+            <td><img src="./assets/gato6.png" alt="Franchesco" width="120" /></td>
             <td>Franchesco</td>
             <td>Galán michi, siempre parece estar posando para una foto.</td>
             <td>
               <a href="adopcion.html?cat=Franchesco" class="btn-adoptar"
                 >Adoptar</a
               >
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 7 -->
           <tr>
             <td><img src="./assets/gato7.png" alt="Salem" width="120" /></td>
             <td>Salem</td>
             <td>Misterioso y elegante, fan de las noches tranquilas.</td>
             <td>
               <a href="adopcion.html?cat=Salem" class="btn-adoptar">Adoptar</a>
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 8 -->
           <tr>
             <td><img src="./assets/gato8.png" alt="Oreo" width="120" /></td>
             <td>Oreo</td>
             <td>Dulce como su nombre, ama perseguir juguetes con plumas.</td>
             <td>
               <a href="adopcion.html?cat=Oreo" class="btn-adoptar">Adoptar</a>
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 9 -->
           <tr>
             <td><img src="./assets/gato9.png" alt="Sabrina" width="120" /></td>
             <td>Sabrina</td>
@@ -169,11 +189,11 @@
               <a href="adopcion.html?cat=Sabrina" class="btn-adoptar"
                 >Adoptar</a
               >
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
+
+          <!-- GATO 10 -->
           <tr>
             <td>
               <img src="./assets/gato10.png" alt="Canelita" width="120" />
@@ -184,9 +204,7 @@
               <a href="adopcion.html?cat=Canelita" class="btn-adoptar"
                 >Adoptar</a
               >
-              <p class="nota">
-                Deberás llenar un formulario que se debe aprobar.
-              </p>
+              <p class="nota">Deberás llenar un formulario que se debe aprobar.</p>
             </td>
           </tr>
         </tbody>
@@ -194,12 +212,8 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="site-footer">
       <p>© <span id="anio"></span> Neko Tea Bar — Hecho con ♥️ y mucho té.</p>
     </footer>
-
-    <script>
-      document.getElementById("anio").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>

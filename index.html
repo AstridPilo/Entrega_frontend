@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Neko Tea Bar — Té, Gatitos y Amor</title>
+
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
+
   <body>
     <!-- HEADER -->
-    <header>
-      <a href="index.html" aria-label="Volver al inicio">
+    <header class="site-header">
+      <a href="index.html" class="logo-link" aria-label="Volver al inicio">
         <img
           src="./assets/neko.svg"
           alt="Logo de Neko Tea Bar"
@@ -17,7 +21,8 @@
           height="120"
         />
       </a>
-      <nav aria-label="Navegación principal">
+
+      <nav class="main-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="menu-bebidas.html">Menú de Bebidas</a></li>
           <li><a href="menu-comidas.html">Menú de Comidas</a></li>
@@ -29,37 +34,41 @@
 
     <!-- MAIN -->
     <main>
-      <!-- Hero -->
-      <section
-        class="hero"
-        style="display: grid; gap: 12px; align-items: center"
-      >
+      <!-- HERO -->
+      <section class="hero">
         <img
-          src="./assets/hero-neko.png.png"
+          class="hero-img"
+          src="./assets/hero-neko.png"
           alt="Interior acogedor del Neko Tea Bar con teteras y gatitos descansando"
-          style="width: 100%; border-radius: 12px"
         />
-        <div>
+
+        <div class="hero-content">
           <h1>Bienvenidos a Neko Tea Bar</h1>
-          <p style="color: var(--muted); margin-bottom: 8px">
+          <p class="hero-subtitle">
             Un espacio donde el té se mezcla con ronroneos felices. Pasá,
             servite algo rico y conocé a nuestros michis 🐾
           </p>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap">
-            <a href="menu-bebidas.html" class="btn-primary">Ver Menú</a>
-            <a href="adopta.html" class="btn-adoptar">Conocé a los gatitos</a>
+
+          <div class="hero-actions">
+            <a href="menu-bebidas.html" class="btn btn-primary">Ver Menú</a>
+            <a href="adopta.html" class="btn btn-adoptar"
+              >Conocé a los gatitos</a
+            >
           </div>
         </div>
       </section>
 
-      <!-- Bebidas destacadas -->
-      <h2>🍵 Bebidas que amamos</h2>
-      <section aria-label="Bebidas destacadas">
-        <article>
+      <!-- BEBIDAS DESTACADAS -->
+      <h2 id="bebidas-destacadas">🍵 Bebidas que amamos</h2>
+      <section
+        aria-labelledby="bebidas-destacadas"
+        class="grid-cards bebidas-destacadas"
+      >
+        <article class="card">
           <img
+            class="card-img"
             src="./assets/bebida1.png"
             alt="Té matcha espumoso"
-            style="width: 100%; border-radius: 10px"
           />
           <h3>Matcha Latte</h3>
           <p class="muted">
@@ -67,11 +76,12 @@
           </p>
           <p><a href="menu-bebidas.html">Ver más bebidas →</a></p>
         </article>
-        <article>
+
+        <article class="card">
           <img
+            class="card-img"
             src="./assets/bebida2.png"
             alt="Té chai con especias"
-            style="width: 100%; border-radius: 10px"
           />
           <h3>Chai Casero</h3>
           <p class="muted">
@@ -79,11 +89,12 @@
           </p>
           <p><a href="menu-bebidas.html">Ver más bebidas →</a></p>
         </article>
-        <article>
+
+        <article class="card">
           <img
+            class="card-img"
             src="./assets/bebida3.png"
             alt="Té frío con frutas"
-            style="width: 100%; border-radius: 10px"
           />
           <h3>Tés Fríos</h3>
           <p class="muted">
@@ -93,14 +104,17 @@
         </article>
       </section>
 
-      <!-- Comidas destacadas -->
-      <h2>🥗 Comidas que recomendamos</h2>
-      <section aria-label="Comidas destacadas">
-        <article>
+      <!-- COMIDAS DESTACADAS -->
+      <h2 id="comidas-destacadas">🥗 Comidas que recomendamos</h2>
+      <section
+        aria-labelledby="comidas-destacadas"
+        class="grid-cards comidas-destacadas"
+      >
+        <article class="card">
           <img
+            class="card-img"
             src="./assets/comida1.png"
             alt="Cheesecake con frutos rojos"
-            style="width: 100%; border-radius: 10px"
           />
           <h3>Cheesecake de Frutos Rojos</h3>
           <p class="muted">
@@ -108,21 +122,23 @@
           </p>
           <p><a href="menu-comidas.html">Ver más comidas →</a></p>
         </article>
-        <article>
+
+        <article class="card">
           <img
+            class="card-img"
             src="./assets/comida2.png"
             alt="Onigiri japonés con salmón"
-            style="width: 100%; border-radius: 10px"
           />
           <h3>Onigiri de Salmón</h3>
           <p class="muted">Arroz japonés relleno y envuelto en alga nori.</p>
           <p><a href="menu-comidas.html">Ver más comidas →</a></p>
         </article>
-        <article>
+
+        <article class="card">
           <img
+            class="card-img"
             src="./assets/comida3.png"
             alt="Sandwich veggie con palta y hummus"
-            style="width: 100%; border-radius: 10px"
           />
           <h3>Sandwich Veggie</h3>
           <p class="muted">
@@ -132,9 +148,9 @@
         </article>
       </section>
 
-      <!-- Reseñas -->
-      <h2>💬 Lo que dicen nuestros visitantes</h2>
-      <section aria-label="Reseñas de clientes" class="reseñas">
+      <!-- RESEÑAS -->
+      <h2 id="reseñas-titulo">💬 Lo que dicen nuestros visitantes</h2>
+      <section aria-labelledby="reseñas-titulo" class="reseñas">
         <article class="reseña">
           <p>
             “Un lugar mágico, lleno de paz. El matcha fue el mejor que probé en
@@ -142,6 +158,7 @@
           </p>
           <strong>— Sofía R.</strong>
         </article>
+
         <article class="reseña">
           <p>
             “La cafetería más tierna del mundo: té, libros y gatos ronroneando a
@@ -149,6 +166,7 @@
           </p>
           <strong>— Martín G.</strong>
         </article>
+
         <article class="reseña">
           <p>
             “El cheesecake de frutos rojos estaba increíble, pero lo mejor fue
@@ -160,7 +178,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="site-footer">
       <p>© 2025 Neko Tea Bar · Hecho con amor y ronroneos 🐾</p>
     </footer>
   </body>

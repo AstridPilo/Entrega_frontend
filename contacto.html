@@ -4,12 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neko Tea Bar — Contacto</title>
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        const anioEl = document.getElementById("anio");
+        if (anioEl) anioEl.textContent = new Date().getFullYear();
+      });
+    </script>
   </head>
+
   <body>
     <!-- HEADER -->
-    <header>
-      <a href="index.html" aria-label="Volver al inicio">
+    <header class="site-header">
+      <a href="index.html" aria-label="Volver al inicio" class="logo-link">
         <img
           src="./assets/neko.svg"
           alt="Logo de Neko Tea Bar"
@@ -17,79 +26,150 @@
           height="120"
         />
       </a>
-      <nav aria-label="Navegación principal">
+
+      <nav class="main-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="menu-bebidas.html">Menú de Bebidas</a></li>
           <li><a href="menu-comidas.html">Menú de Comidas</a></li>
           <li><a href="adopta.html">Adopta un Gatito</a></li>
-          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+          <li>
+            <a href="contacto.html" aria-current="page">Contacto</a>
+          </li>
         </ul>
       </nav>
     </header>
 
     <!-- MAIN -->
-    <main>
-      <h1>Contacto 📬</h1>
-      <p>
-        ¿Tenés alguna consulta, idea o simplemente querés saludarnos? Completá
-        el formulario y te responderemos lo antes posible. 💌
+    <main class="contacto-main">
+      <h1 class="titulo-contacto">Contacto ☕🐱</h1>
+
+      <p class="intro-contacto">
+        ¿Querés hacer una reserva, consultar por eventos, colaborar con Neko Tea Bar
+        o tenés dudas sobre adopciones? Escribinos y te respondemos con mucho amor
+        (y probablemente con un gato durmiendo cerca del teclado).
       </p>
 
-      <form class="form-contacto">
-        <label>
-          Nombre
-          <input
-            type="text"
-            name="nombre"
-            placeholder="Tu nombre completo"
-            required
-          />
-        </label>
+      <section class="contacto-layout">
+        <!-- CARD: INFO -->
+        <article class="form-card contacto-info-card">
+          <h2>Encontranos</h2>
 
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            placeholder="tucorreo@ejemplo.com"
-            required
-          />
-        </label>
+          <ul class="contacto-info-list">
+            <li>
+              <span class="contacto-label">Dirección</span>
+              <span class="contacto-text">Calle Kawaii 123, CABA, Argentina</span>
+            </li>
+            <li>
+              <span class="contacto-label">Horario</span>
+              <span class="contacto-text">
+                Martes a domingo de 10:00 a 20:00 hs
+              </span>
+            </li>
+            <li>
+              <span class="contacto-label">Teléfono</span>
+              <span class="contacto-text">+54 9 11 1234-5678</span>
+            </li>
+            <li>
+              <span class="contacto-label">Email</span>
+              <span class="contacto-text">hola@nekoteabar.com</span>
+            </li>
+          </ul>
 
-        <label>
-          Mensaje
-          <textarea
-            name="mensaje"
-            rows="4"
-            placeholder="Escribí tu mensaje..."
-            required
-          ></textarea>
-        </label>
+          <h3>Redes</h3>
+          <ul class="contacto-redes">
+            <li>@nekoteabar en Instagram</li>
+            <li>@nekoteabar en TikTok</li>
+          </ul>
 
-        <button type="submit" class="btn-primary">Enviar</button>
-      </form>
+          <p class="contacto-notita">
+            Tip: si nos escribís por consultas de adopción, contanos el nombre del
+            gatito así te respondemos más rápido 🐾
+          </p>
+        </article>
 
-      <p id="mensaje-exito" hidden>
-        ¡Gracias! Tu mensaje fue enviado con éxito 🐱✨
-      </p>
+        <!-- CARD: FORMULARIO -->
+        <form class="form-card contacto-form" action="#" method="post">
+          <h2>Escribinos</h2>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                placeholder="Ej: Astrid Pilo"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="ejemplo@correo.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="asunto">Motivo del contacto *</label>
+              <select id="asunto" name="asunto" required>
+                <option value="">Seleccioná una opción</option>
+                <option value="reserva">Reserva en la cafetería</option>
+                <option value="adopcion">Consulta por adopción</option>
+                <option value="eventos">Eventos / cumpleaños</option>
+                <option value="colaboracion">Colaboraciones / prensa</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="gatito-opcional">¿Por algún gatito en particular?</label>
+              <input
+                type="text"
+                id="gatito-opcional"
+                name="gatito-opcional"
+                placeholder="Ej: Señor Bigotes, Doña Croqueta..."
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              required
+              placeholder="Contanos en qué podemos ayudarte 🐱"
+            ></textarea>
+          </div>
+
+          <div class="form-group form-group-check">
+            <input type="checkbox" id="acepto" name="acepto" required />
+            <label for="acepto">
+              Acepto ser contactadx por Neko Tea Bar para responder mi consulta.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">
+            Enviar mensaje
+          </button>
+
+          <p class="form-nota-final">
+            Te vamos a responder lo antes posible. Si tu mensaje es por una
+            reserva para hoy, te recomendamos también escribirnos por WhatsApp 💬
+          </p>
+        </form>
+      </section>
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="site-footer">
       <p>© <span id="anio"></span> Neko Tea Bar — Hecho con ♥️ y mucho té.</p>
     </footer>
-
-    <script>
-      // Año dinámico en el footer
-      document.getElementById("anio").textContent = new Date().getFullYear();
-
-      // Simulación de envío de formulario
-      const form = document.querySelector(".form-contacto");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        form.hidden = true;
-        document.getElementById("mensaje-exito").hidden = false;
-      });
-    </script>
   </body>
 </html>

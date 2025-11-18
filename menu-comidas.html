@@ -4,21 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neko Tea Bar — Menú de Comidas</title>
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        const anioEl = document.getElementById("anio");
+        if (anioEl) anioEl.textContent = new Date().getFullYear();
+      });
+    </script>
   </head>
+
   <body>
     <!-- HEADER -->
-    <header>
-      <a href="index.html" aria-label="Volver al inicio">
+    <header class="site-header">
+      <a href="index.html" aria-label="Volver al inicio" class="logo-link">
         <img
-          src="neko.svg"
+          src="./assets/neko.svg"
           alt="Logo de Neko Tea Bar"
           width="120"
           height="120"
         />
       </a>
 
-      <nav aria-label="Navegación principal">
+      <nav class="main-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="menu-bebidas.html">Menú de Bebidas</a></li>
           <li>
@@ -31,85 +40,139 @@
     </header>
 
     <!-- MAIN -->
-    <main>
-      <h1>Menú de Comidas</h1>
-      <p>
-        Platos caseros que cambian cada estación. Indica alergias al ordenar. 🐾
+    <main class="menu-main">
+      <h1 class="titulo-menu">Menú de Comidas</h1>
+      <p class="intro-menu">
+        Dulces, salados y opciones ligeras para acompañar tu té y tus momentos
+        con los michis. 🍰🐱
       </p>
 
-      <section>
-        <h2>Entradas</h2>
-        <article>
-          <h3>Gyozas "Bigotes"</h3>
-          <p>Empanaditas al vapor con salsa de soja y jengibre.</p>
-          <p><strong>Precio:</strong> $3.200</p>
-        </article>
-        <article>
-          <h3>Edamame Ronroneo</h3>
-          <p>Vainas de soja con sal marina. <em>Vegano</em>.</p>
-          <p><strong>Precio:</strong> $2.400</p>
-        </article>
-        <article>
-          <h3>Takoyaki "Patas Suaves"</h3>
-          <p>
-            Bolas de masa rellenas de pulpo con salsa especial y copos de
-            bonito.
-          </p>
-          <p><strong>Precio:</strong> $3.600</p>
-        </article>
+      <!-- DULCES -->
+      <section class="menu-section">
+        <h2>Pastelería y Dulces</h2>
+        <div class="grid-cards menu-grid">
+          <article class="card menu-item">
+            <h3>Cheesecake de Frutos Rojos</h3>
+            <p class="menu-desc">
+              Base crocante, crema suave y topping frutal irresistible.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $5.500</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Brownie "Michi"</h3>
+            <p class="menu-desc">
+              Brownie de chocolate húmedo con nueces y salsa de chocolate.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $4.800</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Carrot Cake</h3>
+            <p class="menu-desc">
+              Bizcochuelo de zanahoria con frosting suave de queso crema.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $5.200</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Cookie Gigante "Pata de Gato"</h3>
+            <p class="menu-desc">
+              Galleta grande con chips de chocolate y centro blandito.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $3.200</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Tarta de Limón</h3>
+            <p class="menu-desc">
+              Base de masa crocante, crema de limón y merengue italiano.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $5.000</p>
+          </article>
+        </div>
       </section>
 
-      <section>
-        <h2>Platos Principales</h2>
-        <article>
-          <h3>Katsu Curry "Michi"</h3>
-          <p>Milanesa de pollo con curry suave y arroz jazmín.</p>
-          <p><strong>Precio:</strong> $6.800</p>
-        </article>
-        <article>
-          <h3>Ramen Verde Gatuno</h3>
-          <p>
-            Caldo de verduras, tofu grillado, alga nori y hongos.
-            <em>Vegano</em>.
-          </p>
-          <p><strong>Precio:</strong> $6.500</p>
-        </article>
-        <article>
-          <h3>Onigiri Tricolor</h3>
-          <p>
-            Triángulos de arroz rellenos (salmón, ciruela, atún). 3 unidades.
-          </p>
-          <p><strong>Precio:</strong> $4.200</p>
-        </article>
+      <!-- SALADOS -->
+      <section class="menu-section">
+        <h2>Opciones Saladas</h2>
+        <div class="grid-cards menu-grid">
+          <article class="card menu-item">
+            <h3>Onigiri de Salmón</h3>
+            <p class="menu-desc">
+              Arroz japonés relleno de salmón, envuelto en alga nori.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $3.800</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Sandwich Veggie</h3>
+            <p class="menu-desc">
+              Pan integral con vegetales frescos, palta y hummus.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $4.200</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Tostadas de Palta</h3>
+            <p class="menu-desc">
+              Pan de masa madre con palta pisada, semillas y limón.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $3.900</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Sandwich Caprese</h3>
+            <p class="menu-desc">
+              Tomate, muzza, albahaca fresca y pesto suave.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $4.000</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Quiche de Verduras</h3>
+            <p class="menu-desc">
+              Masa quebrada con relleno de verduras de estación y queso.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $4.600</p>
+          </article>
+        </div>
       </section>
 
-      <section>
-        <h2>Postres</h2>
-        <article>
-          <h3>Cheesecake "Miau"</h3>
-          <p>Clásico con coulis de frutos rojos.</p>
-          <p><strong>Precio:</strong> $3.900</p>
-        </article>
-        <article>
-          <h3>Compota Neko</h3>
-          <p>Manzana y canela con granola. <em>Vegano</em>.</p>
-          <p><strong>Precio:</strong> $3.100</p>
-        </article>
-        <article>
-          <h3>Dorayaki "Colita Dulce"</h3>
-          <p>Panqueques japoneses rellenos de pasta de porotos rojos (anko).</p>
-          <p><strong>Precio:</strong> $3.500</p>
-        </article>
+      <!-- OPCIONES LIGERAS / VEGGIE -->
+      <section class="menu-section">
+        <h2>Opciones Ligeras y Veggies</h2>
+        <div class="grid-cards menu-grid">
+          <article class="card menu-item">
+            <h3>Ensalada "Neko Fresh"</h3>
+            <p class="menu-desc">
+              Mix de hojas verdes, zanahoria, pepino, croutons y aderezo suave.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $4.300</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Wrap Vegano</h3>
+            <p class="menu-desc">
+              Tortilla rellena de vegetales asados, hummus y hojas verdes.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $4.500</p>
+          </article>
+
+          <article class="card menu-item">
+            <h3>Bowl de Arroz y Tofu</h3>
+            <p class="menu-desc">
+              Arroz, tofu sellado, vegetales salteados y salsa de soja suave.
+            </p>
+            <p class="menu-price"><strong>Precio:</strong> $4.800</p>
+          </article>
+        </div>
       </section>
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="site-footer">
       <p>© <span id="anio"></span> Neko Tea Bar — Hecho con ♥️ y mucho té.</p>
     </footer>
-
-    <script>
-      document.getElementById("anio").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>

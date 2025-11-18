@@ -4,12 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neko Tea Bar — Formulario de Adopción</title>
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const catName =
+          params.get("cat") || "uno de nuestros gatitos de Neko Tea Bar";
+
+        const nombreGatoEl = document.getElementById("nombre-gato");
+        if (nombreGatoEl) nombreGatoEl.textContent = catName;
+
+        const anioEl = document.getElementById("anio");
+        if (anioEl) anioEl.textContent = new Date().getFullYear();
+      });
+    </script>
   </head>
+
   <body>
     <!-- HEADER -->
-    <header>
-      <a href="index.html" aria-label="Volver al inicio">
+    <header class="site-header">
+      <a href="index.html" aria-label="Volver al inicio" class="logo-link">
         <img
           src="./assets/neko.svg"
           alt="Logo de Neko Tea Bar"
@@ -17,7 +33,8 @@
           height="120"
         />
       </a>
-      <nav aria-label="Navegación principal">
+
+      <nav class="main-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="menu-bebidas.html">Menú de Bebidas</a></li>
           <li><a href="menu-comidas.html">Menú de Comidas</a></li>
@@ -28,174 +45,163 @@
     </header>
 
     <!-- MAIN -->
-    <main class="formulario-adopcion">
-      <h1>Formulario de Adopción 🐾</h1>
-      <p>Estás aplicando para: <strong id="gato-seleccionado">—</strong></p>
+    <main class="adopcion-main">
+      <h1 class="titulo-adopcion">Formulario de adopción 🐾</h1>
+      <p class="intro-adopcion">
+        Completá este formulario para iniciar el proceso de adopción de
+        <strong id="nombre-gato">uno de nuestros gatitos</strong>. Te vamos a
+        contactar para seguir con los pasos y asegurarnos de que sea un
+        match perfecto 💌
+      </p>
 
-      <form id="form-adopcion" enctype="multipart/form-data">
-        <!-- Datos personales -->
-        <label>
-          Nombre y Apellido
-          <input
-            type="text"
-            name="nombre"
-            placeholder="Tu nombre completo"
-            required
-          />
-        </label>
+      <section class="adopcion-layout">
+        <!-- CARD: RESUMEN DEL GATO -->
+        <article class="form-card gato-card">
+          <h2>Gatito elegido</h2>
+          <p class="gato-nombre">
+            Estás completando la adopción de:<br />
+            <strong id="nombre-gato-card">★ <span id="nombre-gato"></span></strong>
+          </p>
+          <p class="gato-texto">
+            Recordá que la adopción es responsable: buscamos hogares donde
+            haya amor, estabilidad y muchas mantitas suaves.
+          </p>
 
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            placeholder="tucorreo@ejemplo.com"
-            required
-          />
-        </label>
+          <ul class="gato-tips">
+            <li>Compromiso a largo plazo 🐱</li>
+            <li>Visitas al veterinario cuando haga falta 🩺</li>
+            <li>Espacio seguro dentro del hogar 🏡</li>
+          </ul>
+        </article>
 
-        <label>
-          Teléfono
-          <input
-            type="tel"
-            name="telefono"
-            placeholder="Tu número de contacto"
-          />
-        </label>
+        <!-- CARD: FORMULARIO -->
+        <form class="form-card form-adopcion" action="#" method="post">
+          <h2>Tus datos</h2>
 
-        <label>
-          Localidad
-          <input
-            type="text"
-            name="localidad"
-            placeholder="Ciudad / Provincia"
-            required
-          />
-        </label>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                placeholder="Ej: Astrid Pilo"
+              />
+            </div>
 
-        <label>
-          Tipo de vivienda
-          <select name="vivienda" required>
-            <option value="" disabled selected>Elegí una opción…</option>
-            <option>Casa</option>
-            <option>Departamento</option>
-            <option>PH / Dúplex</option>
-            <option>Otro</option>
-          </select>
-        </label>
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="ejemplo@correo.com"
+              />
+            </div>
 
-        <!-- Seguridad -->
-        <fieldset>
-          <legend>Seguridad en el hogar 🏠</legend>
-          <p>¿Tus ventanas cuentan con red de protección?</p>
-          <div class="opciones">
-            <input type="radio" name="ventanas_protegidas" value="si" />
-            <label class="chk"> Si </label>
-            <input type="radio" name="ventanas_protegidas" value="no" />
-            <label class="chk"> No </label>
-            <input type="radio" name="ventanas_protegidas" value="compromiso" />
+            <div class="form-group">
+              <label for="telefono">Teléfono *</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                required
+                placeholder="Ej: +54 9 11 ..."
+              />
+            </div>
 
-            <label class="chk">Me comprometo a colocarlas</label>
+            <div class="form-group">
+              <label for="ciudad">Ciudad / Barrio *</label>
+              <input
+                type="text"
+                id="ciudad"
+                name="ciudad"
+                required
+                placeholder="Ej: CABA, Palermo"
+              />
+            </div>
           </div>
 
-          <label class="full">
-            Por favor, adjuntá una foto
-            <input type="file" name="foto_ventana" accept="image/*" />
-          </label>
-        </fieldset>
+          <h2>Sobre tu hogar</h2>
 
-        <!-- Mascotas actuales -->
-        <fieldset>
-          <legend>Otras mascotas 🐕🐇🐦</legend>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="tipo-hogar">Tipo de vivienda *</label>
+              <select id="tipo-hogar" name="tipo-hogar" required>
+                <option value="">Seleccioná una opción</option>
+                <option value="departamento">Departamento</option>
+                <option value="casa-patio">Casa con patio</option>
+                <option value="casa-jardin">Casa con jardín</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
 
-          <p>¿Convivís con otras mascotas?</p>
-          <div class="opciones">
-            <input type="radio" name="otras_mascotas" value="si" />
-            <label class="chk"> Sí </label>
-            <input type="radio" name="otras_mascotas" value="no" />
-            <label class="chk"> No </label>
+            <div class="form-group">
+              <label for="mascotas">¿Tenés otras mascotas?</label>
+              <textarea
+                id="mascotas"
+                name="mascotas"
+                rows="3"
+                placeholder="Contanos cuántas y qué especie son."
+              ></textarea>
+            </div>
           </div>
 
-          <label class="full">
-            Si la respuesta es sí, contanos cuáles:
+          <div class="form-group">
+            <label for="motivo"
+              >¿Por qué querés adoptar a este gatito en particular? *</label
+            >
             <textarea
-              name="detalle_mascotas"
-              rows="2"
-              placeholder="Perro, gato, hámster..."
+              id="motivo"
+              name="motivo"
+              rows="4"
+              required
+              placeholder="Nos ayuda a conocerte mejor y buscar el mejor match para el michi."
             ></textarea>
-          </label>
-
-          <p>¿Estas otras mascotas están castradas?</p>
-          <div class="opciones">
-            <input type="radio" name="mascotas_castradas" value="si" />
-
-            <label class="chk"> Si</label>
-            <input type="radio" name="mascotas_castradas" value="no" />
-
-            <label class="chk">No </label>
           </div>
-        </fieldset>
 
-        <!-- Compromisos -->
-        <fieldset>
-          <legend>Tus compromisos 💌</legend>
-          <div class="opciones">
-            <input type="checkbox" name="compromiso_castrar" required />
-            <label class="chk"> Me comprometo a castrar si corresponde. </label>
+          <div class="form-group">
+            <label for="tiempo-solo"
+              >¿Cuántas horas suele estar sola la casa por día?</label
+            >
+            <input
+              type="text"
+              id="tiempo-solo"
+              name="tiempo-solo"
+              placeholder="Ej: 4–6 horas, casi nunca, etc."
+            />
           </div>
-          <div class="opciones">
-            <input type="checkbox" name="compromiso_entrevistas" required />
-            <label class="chk"> Acepto entrevistas de seguimiento. </label>
-          </div>
-          <div class="opciones">
-            <input type="checkbox" name="compromiso_vacunas" required />
-            <label class="chk">
-              Me comprometo a mantener las vacunas al día.
+
+          <div class="form-group form-group-check">
+            <input
+              type="checkbox"
+              id="compromiso"
+              name="compromiso"
+              required
+            />
+            <label for="compromiso">
+              Confirmo que comprendo que la adopción es un compromiso a largo
+              plazo y me haré responsable del bienestar del gatito. 💖
             </label>
           </div>
-        </fieldset>
 
-        <!-- Motivación -->
-        <label class="full">
-          ¿Por qué querés adoptar a este michi? 💖
-          <textarea
-            name="motivo"
-            rows="4"
-            placeholder="Contanos un poquito sobre tu decisión..."
-            required
-          ></textarea>
-        </label>
+          <button type="submit" class="btn btn-primary btn-submit">
+            Enviar solicitud de adopción
+          </button>
 
-        <!-- Botón -->
-        <button type="submit" class="btn-primary">Enviar solicitud</button>
-      </form>
-
-      <p id="mensaje-exito" hidden>
-        ¡Gracias! Tu solicitud fue enviada con éxito 🐱✨
-      </p>
+          <p class="form-nota-final">
+            Nos contactaremos por mail o WhatsApp para contarte los siguientes
+            pasos. Gracias por abrirle tu hogar a un michi de Neko Tea Bar ✨
+          </p>
+        </form>
+      </section>
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="site-footer">
       <p>© <span id="anio"></span> Neko Tea Bar — Hecho con ♥️ y mucho té.</p>
     </footer>
-
-    <script>
-      // Año dinámico
-      document.getElementById("anio").textContent = new Date().getFullYear();
-
-      // Gatito desde la URL
-      const params = new URLSearchParams(window.location.search);
-      const gato = params.get("cat") || "uno de nuestros gatitos";
-      document.getElementById("gato-seleccionado").textContent = gato;
-
-      // Simulación de envío
-      const form = document.getElementById("form-adopcion");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        form.hidden = true;
-        document.getElementById("mensaje-exito").hidden = false;
-      });
-    </script>
   </body>
 </html>

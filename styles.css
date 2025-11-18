@@ -1,415 +1,686 @@
-/* ===========================
-   Fuente Montserrat
-   =========================== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
-/* ===========================
-   Variables
-   =========================== */
+/* PALETA GENERAL */
 :root {
-  --bg: #fafafa;
-  --fg: #1f2328;
-  --muted: #6b7280;
-  --brand: #f3bad6; /* rosa gatuno */
-  --card: #ffffff;
-  --card-border: #e5e7eb;
-  --link: #2563eb;
+  --rosa: #f3bad6;
+  --rosa-oscuro: #d889ab;
+  --marron-suave: #73595a;
+  --muted: #666666;
+  --fondo: #fdf6fa;
 }
 
-/* ===========================
-   Reset & base
-   =========================== */
-* { box-sizing: border-box; }
-
-html, body {
-  padding: 0;
+/* RESETEO SUAVE */
+body {
   margin: 0;
-  background: #d4eaeb;
-  color: var(--fg);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+  background: var(--fondo);
+  color: #333;
+  line-height: 1.5;
 }
 
-/* ===========================
-   Layout básico
-   =========================== */
-header, main, footer {
-  max-width: 960px;
-  margin: 12px auto;
-  padding: 16px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
-}
-
-header {
+/* HEADER */
+.site-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  padding: 12px 24px;
+  background: white;
+  border-bottom: 2px solid #eee;
 }
 
-header img { display: block; height: auto; }
-
-nav ul {
+.main-nav ul {
   list-style: none;
   display: flex;
   gap: 16px;
   padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.main-nav a:hover {
+  color: var(--rosa-oscuro);
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  align-items: center;
+}
+
+.hero-img {
+  height: 700px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.hero-content h1 {
   margin: 0;
 }
 
-nav a {
-  text-decoration: none;
-  color: var(--fg);
-  padding: 8px 10px;
-  border-radius: 10px;
+.hero-subtitle {
+  color: var(--muted);
 }
 
-nav a:hover { background: #f1f5f9; }
-nav a[aria-current="page"] {
-  background: var(--brand);
-  color: white;
-}
-
-/* ===========================
-   Tipografía
-   =========================== */
-h1 {
-  font-weight: 700;
-  font-size: 2rem;
-  margin: 8px 0 4px;
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 1.25rem;
-  margin: 24px 0 8px;
-}
-
-h3 {
-  font-weight: 500;
-  font-size: 1.05rem;
-  margin: 6px 0 4px;
-}
-
-h4, h5, h6 {
-  font-weight: 500;
-  font-size: 1.2rem;
-}
-
-p, li, span, label {
-  font-weight: 400;
-  font-size: 1rem;
-  margin: 6px 0;
-}
-
-a {
-  font-weight: 500;
-  color: var(--link);
-  text-decoration: none;
-}
-
-a:hover { text-decoration: underline; }
-
-/* ===========================
-   Secciones como grilla de cards
-   =========================== */
-section {
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-}
-
-article {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-}
-
-article em {
-  background: #dcfce7; /* verde suave para vegano */
-  color: #166534;
-  padding: 2px 6px;
-  border-radius: 999px;
-  font-style: normal;
-  font-size: 0.85em;
-}
-
-/* ===========================
-   Lista compacta en menú de comidas
-   =========================== */
-dl { 
-  display: grid; 
-  grid-template-columns: 1.2fr .8fr; 
-  gap: 6px 12px; 
-}
-dt { font-weight: 600; }
-dd { margin: 0; color: var(--muted); }
-
-/* ===========================
-   Tablas de gatitos
-   =========================== */
-.tabla-gatos {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 16px;
-}
-
-.tabla-gatos th, 
-.tabla-gatos td {
-  border: 1px solid var(--card-border);
-  padding: 12px;
-  text-align: center;
-}
-
-.tabla-gatos th {
-  background: var(--brand);
-  color: white;
-  font-size: 1rem;
-}
-
-.tabla-gatos tr:nth-child(even) { background: #f9fafb; }
-
-.tabla-gatos img { border-radius: 12px; }
-
-/* ===========================
-   Footer
-   =========================== */
-footer { 
-  color: var(--muted); 
-  font-size: 0.9rem; 
-  border-top: 1px solid var(--card-border); 
-}
-
-/* ===========================
-   Formularios
-   =========================== */
-.form-contacto {
+.hero-actions {
   display: flex;
-  flex-direction: column;
   gap: 12px;
-  max-width: 500px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-top: 16px;
+  flex-wrap: wrap;
 }
 
-.form-contacto input,
-.form-contacto textarea {
-  padding: 10px;
-  border: 1px solid var(--card-border);
+.btn {
+  padding: 10px 16px;
   border-radius: 8px;
-  font-size: 1rem;
-  width: 100%;
-}
-
-.form-contacto label { font-weight: 600; }
-
-/* ===========================
-   Botones Adoptar
-   =========================== */
-.btn-adoptar {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 8px;
-  background-color: var(--brand);
-  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
-  font-family: inherit;
-  transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.btn-primary {
+  background: var(--rosa);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--rosa-oscuro);
+}
+
+.btn-adoptar {
+  background: white;
+  border: 2px solid var(--rosa);
+  color: var(--rosa-oscuro);
 }
 
 .btn-adoptar:hover {
-  background-color: #eaa8c5;
-  transform: translateY(-2px);
+  background: var(--rosa);
+  color: white;
 }
 
-.btn-adoptar:active {
-  background-color: #d998b0;
-  transform: translateY(0);
-}
-
-/* ===========================
-   Formulario de Adopción
-   =========================== */
-.formulario-adopcion { display: grid; gap: 16px; }
-
-#form-adopcion {
+/* GRID DE CARDS */
+.grid-cards {
   display: grid;
-  gap: 14px;
-  max-width: 720px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
   padding: 20px;
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
-#form-adopcion label {
-  display: grid;
-  gap: 6px;
-  font-weight: 600;
-}
-
-#form-adopcion input[type="text"],
-#form-adopcion input[type="email"],
-#form-adopcion input[type="tel"],
-#form-adopcion input[type="file"],
-#form-adopcion select,
-#form-adopcion textarea {
-  font: inherit;
-  color: var(--fg);
-  padding: 10px 12px;
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
-  background: #fff;
-  outline: none;
-  transition: border-color .15s ease, box-shadow .15s ease;
-}
-
-#form-adopcion input:hover,
-#form-adopcion select:hover,
-#form-adopcion textarea:hover {
-  border-color: #d1d5db;
-}
-
-#form-adopcion input:focus-visible,
-#form-adopcion select:focus-visible,
-#form-adopcion textarea:focus-visible {
-  border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(243,186,214,.35);
-}
-
-#form-adopcion ::placeholder { color: var(--muted); }
-
-/* Radios/checkbox en línea */
-.opciones {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 6px;
-  align-items: center;
-}
-
-.opciones .chk {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 500;
-  margin: 0;
-}
-
-.opciones input[type="radio"],
-.opciones input[type="checkbox"],
-#form-adopcion input[type="radio"],
-#form-adopcion input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--brand);
-  margin: 0;
-}
-
-/* Fieldsets */
-#form-adopcion fieldset {
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
+.card {
+  background: white;
   padding: 12px;
-  display: grid;
-  gap: 10px;
-  background: #ffffffc7;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-#form-adopcion legend {
-  padding: 0 6px;
-  font-size: .95rem;
-  color: var(--muted);
-}
-
-/* Grid 2 col en escritorio */
-@media (min-width: 680px) {
-  #form-adopcion {
-    grid-template-columns: 1fr 1fr;
-  }
-  #form-adopcion .full,
-  #form-adopcion fieldset,
-  #form-adopcion button,
-  #form-adopcion textarea {
-    grid-column: 1 / -1;
-  }
-}
-
-/* ===========================
-   Botón primario
-   =========================== */
-.btn-primary {
-  display: inline-block;
-  width: fit-content;
-  padding: 10px 16px;
+/* IMÁGENES DE CARDS (fotos corregidas) */
+.card-img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
   border-radius: 10px;
-  border: none;
-  background: var(--brand);
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform .1s ease, filter .2s ease, background .2s ease;
 }
 
-.btn-primary:hover { filter: brightness(0.96); transform: translateY(-1px); }
-.btn-primary:active { transform: translateY(0); }
-
-/* ===========================
-   Mensaje de éxito
-   =========================== */
-#mensaje-exito {
-  max-width: 720px;
-  padding: 12px 14px;
-  background: #ecfdf5;
-  color: #065f46;
-  border: 1px solid #10b98140;
-  border-radius: 10px;
-  font-weight: 600;
-}
-
-/* ===========================
-   Reseñas
-   =========================== */
+/* RESEÑAS */
 .reseñas {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
+  padding: 20px;
 }
 
 .reseña {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
+  background: white;
   padding: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  font-size: 0.95rem;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  color: var(--muted);
+}
+
+/* =========================
+   PÁGINA DE ADOPCIÓN
+   ========================= */
+
+.adopta-main {
+  padding: 16px 24px 32px;
+}
+
+.adopta-hero {
+  max-width: 720px;
+  margin: 0 auto 24px;
+}
+
+.adopta-hero h1 {
+  margin-bottom: 8px;
+}
+
+.adopta-panel {
+  background: white;
+  border-radius: 16px;
+  padding: 16px 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Toolbar de filtros + contador */
+.adopta-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+#adoptados-resumen {
+  font-weight: 600;
+}
+
+/* Chips de filtro */
+.adopta-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-chip {
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn-chip:hover {
+  border-color: var(--rosa);
+}
+
+.btn-chip.is-active {
+  background: var(--rosa);
+  border-color: var(--rosa);
+  color: white;
+}
+
+/* Ajustes específicos de las cards de gatos */
+.gatos-lista .card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.card-cat-name {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.card-cat-badge {
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #fdf0f6;
+  color: var(--marron-suave);
+}
+
+.card-cat-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.card-cat-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.card-cat-footer small {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Estado adoptado */
+.card.is-adopted {
+  opacity: 0.7;
+}
+
+.card.is-adopted .btn-adoptar {
+  cursor: default;
+  opacity: 0.8;
+}
+
+/* Botón adoptar dentro de card */
+.btn-adoptar-cat {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 2px solid var(--rosa);
+  background: white;
+  color: var(--rosa-oscuro);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-adoptar-cat:hover {
+  background: var(--rosa);
+  color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .adopta-main {
+    padding: 12px 12px 24px;
+  }
+
+  .adopta-toolbar {
+    align-items: flex-start;
+  }
+}
+
+/* ============================
+   TABLA DE ADOPCIÓN 
+   ============================ */
+
+.tabla-gatos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+/* Encabezado */
+.tabla-gatos thead {
+  background: #f8ddea; /* rosa clarito pastel */
+}
+
+.tabla-gatos thead th {
+  padding: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #5a4a4a;
+}
+
+/* Filas */
+.tabla-gatos tbody tr:nth-child(even) {
+  background: #fef7fb; /* alternancia kawaii */
+}
+
+.tabla-gatos tbody tr:hover {
+  background: #fde8f3; /* hover suave */
+}
+
+/* Celdas */
+.tabla-gatos td {
+  padding: 14px;
+  vertical-align: middle;
+  color: #4a4a4a;
   line-height: 1.4;
 }
 
-.reseña strong {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 0.85rem;
+/* Fotos de gatos */
+.tabla-gatos img {
+  border-radius: 12px;
+  width: 110px;
+  height: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* ===========================
-   Accesibilidad
-   =========================== */
-a:focus-visible {
-  outline: 3px solid rgba(37,99,235,.35);
-  outline-offset: 2px;
-  border-radius: 8px;
+/* Botón adoptar */
+.btn-adoptar {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: #f3b2d4;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-adoptar:hover {
+  background: #d98bb8;
+  border-color: #b76d95;
+}
+
+/* Nota debajo del botón */
+.nota {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #7a6e6e;
+}
+
+/* Título */
+.titulo-adopta {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #5c4266;
+}
+
+.intro-adopta {
+  text-align: center;
+  max-width: 600px;
+  margin: 10px auto 20px;
+  color: #7a6e7a;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .tabla-gatos img {
+    width: 80px;
+  }
+
+  .tabla-gatos td,
+  .tabla-gatos th {
+    padding: 10px;
+  }
+
+  .btn-adoptar {
+    padding: 6px 12px;
+  }
+
+  .tabla-gatos {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================
+   FORMULARIO DE ADOPCIÓN
+   ============================ */
+
+.adopcion-main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.titulo-adopcion {
+  text-align: center;
+  font-size: 2rem;
+  color: #5c4266;
+  margin-bottom: 8px;
+}
+
+.intro-adopcion {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+}
+
+.adopcion-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Card genérica */
+.form-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 20px 22px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* Card del gato */
+.gato-card h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.gato-nombre {
+  margin: 8px 0 10px;
+  font-size: 0.95rem;
+}
+
+.gato-texto {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.gato-tips {
+  margin-top: 10px;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #6b5a6b;
+}
+
+/* Formulario */
+.form-adopcion h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 16px;
+  margin-bottom: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a3d4a;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border-radius: 10px;
+  border: 1px solid #e0cfe5;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  background: #fdf8ff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--rosa);
+  box-shadow: 0 0 0 2px rgba(243, 178, 212, 0.5);
+}
+
+/* Checkbox */
+.form-group-check {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.form-group-check input[type="checkbox"] {
+  margin-top: 3px;
+}
+
+/* Botón enviar */
+.btn-submit {
+  margin-top: 8px;
+}
+
+.form-nota-final {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .adopcion-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .adopcion-main {
+    padding-inline: 12px;
+  }
+}
+
+/* ============================
+   PÁGINA DE CONTACTO
+   ============================ */
+
+.contacto-main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.titulo-contacto {
+  text-align: center;
+  font-size: 2rem;
+  color: #5c4266;
+  margin-bottom: 8px;
+}
+
+.intro-contacto {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+}
+
+.contacto-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.9fr);
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Card de info */
+.contacto-info-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.contacto-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contacto-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b566b;
+}
+
+.contacto-text {
+  font-size: 0.95rem;
+  color: #403540;
+}
+
+.contacto-redes {
+  list-style: none;
+  padding-left: 0;
+  margin: 6px 0 12px;
+  font-size: 0.9rem;
+  color: #6b566b;
+}
+
+.contacto-redes li::before {
+  content: "✦ ";
+}
+
+.contacto-notita {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Form de contacto reutiliza estilos de .form-card, .form-grid, .form-group */
+.contacto-form h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contacto-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-main {
+    padding-inline: 12px;
+  }
+}
+
+/* ============================
+   MENÚ DE BEBIDAS / COMIDAS
+   ============================ */
+
+.menu-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.titulo-menu {
+  text-align: center;
+  font-size: 2rem;
+  color: #5c4266;
+  margin-bottom: 8px;
+}
+
+.intro-menu {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+}
+
+.menu-section {
+  margin-bottom: 24px;
+}
+
+.menu-section h2 {
+  margin: 10px 4px 10px;
+}
+
+.menu-grid {
+  /* reusa .grid-cards pero con un poquito menos de sombra si querés */
+}
+
+.menu-item h3 {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.menu-desc {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.menu-price {
+  margin: 0;
+  font-size: 0.9rem;
 }
